@@ -368,6 +368,22 @@
       "commands": [],
       "network": "Runs a local web service; image pulls contact a container registry.",
       "limitation": "Keep the published port on loopback; the application is deliberately vulnerable."
+    },
+    {
+      "id": "hackingtool",
+      "name": "Hackingtool (Z4nzu)",
+      "category": "hacking",
+      "url": "https://github.com/Z4nzu/hackingtool",
+      "summary": "All-in-one security tool catalog and launcher by Z4nzu and contributors (MIT license).",
+      "use_case": "Find, install, and launch tools for recon, OSINT, web testing, and forensics in a Linux lab.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "hackingtool"
+      ],
+      "network": "Installation downloads upstream tools; network activity and data exposure depend on the selected tool and any configured AI provider.",
+      "limitation": "Requires Python 3.10+. Upstream supports Linux/macOS and explicitly rejects native Windows; use a Linux VM on a Windows host. Individual tools have their own requirements and licenses. Documentation reviewed 2026-10-05; runtime not tested here."
     }
   ]
 }
