@@ -1,0 +1,20 @@
+id: e360-juice-shop-detect
+info:
+  name: Local Juice Shop title observation
+  author: elevate360
+  severity: info
+  description: Identifies a Juice Shop page title; does not establish a vulnerability.
+  tags: lab,tech
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+    redirects: false
+    matchers-condition: and
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - "<title>OWASP Juice Shop</title>"
