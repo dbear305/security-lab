@@ -1,0 +1,37 @@
+name: Security research checks
+on:
+  push:
+    paths:
+      - '**'
+      - '.github/workflows/security-research.yml'
+  pull_request:
+    paths:
+      - '**'
+      - '.github/workflows/security-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run offline tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Run documented demo
+        run: python3 src/evidence.py example.com --fixture examples/fixture.json
+      - name: Check Python syntax
+        run: python3 -m compileall -q src
+      - name: Validate tool catalog
+        run: python3 src/toolkit.py validate
+      - name: Validate local lab configuration
+        run: docker compose -f labs/web/compose.yml config --quiet
