@@ -1,0 +1,27 @@
+name: dbear305-security-lab
+services:
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    ports:
+      - "127.0.0.1:3001:3000"
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [lab]
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    profiles: [tools]
+    user: "${LAB_UID:-1000}:${LAB_GID:-1000}"
+    depends_on:
+      juice-shop:
+        condition: service_healthy
+    volumes:
+      - ../../reports/web-lab:/zap/wrk:rw
+    command: ["zap-baseline.py", "-t", "http://juice-shop:3000", "-m", "1", "-I", "-J", "zap.json", "-r", "zap.html"]
+    networks: [lab]
+networks:
+  lab:
+    internal: true
