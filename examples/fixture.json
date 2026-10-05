@@ -1,0 +1,82 @@
+{
+  "domain": "example.com",
+  "description": "Synthetic demonstration only. Addresses, certificate IDs, and records are invented. No live findings.",
+  "responses": {
+    "dns:A": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 1,
+          "TTL": 300,
+          "data": "192.0.2.10"
+        }
+      ]
+    },
+    "dns:AAAA": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 28,
+          "TTL": 300,
+          "data": "2001:db8::10"
+        }
+      ]
+    },
+    "dns:MX": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "10 mail.example.com."
+        }
+      ]
+    },
+    "dns:NS": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 2,
+          "TTL": 300,
+          "data": "ns1.example.com."
+        }
+      ]
+    },
+    "dns:TXT": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 16,
+          "TTL": 300,
+          "data": "\"v=spf1 -all\""
+        }
+      ]
+    },
+    "dns:CAA": {
+      "Status": 0,
+      "Answer": [
+        {
+          "name": "example.com.",
+          "type": 257,
+          "TTL": 300,
+          "data": "0 issue \"ca.example\""
+        }
+      ]
+    },
+    "ct": [
+      {
+        "id": 100,
+        "name_value": "example.com\n*.example.com\nWWW.EXAMPLE.COM\nnotexample.com"
+      },
+      {
+        "id": 101,
+        "name_value": "www.example.com\nexample.com.attacker.test"
+      }
+    ]
+  }
+}
