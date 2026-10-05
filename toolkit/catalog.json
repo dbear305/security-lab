@@ -384,6 +384,166 @@
       ],
       "network": "Installation downloads upstream tools; network activity and data exposure depend on the selected tool and any configured AI provider.",
       "limitation": "Requires Python 3.10+. Upstream supports Linux/macOS and explicitly rejects native Windows; use a Linux VM on a Windows host. Individual tools have their own requirements and licenses. Documentation reviewed 2026-10-05; runtime not tested here."
+    },
+    {
+      "id": "user-scanner",
+      "name": "User Scanner",
+      "category": "osint",
+      "url": "https://github.com/kaifcodec/user-scanner",
+      "summary": "Email and username account-discovery suite maintained by kaifcodec.",
+      "use_case": "Review digital footprints and corroborate account-discovery leads.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Queries third-party sites and configured intelligence services; submitted identifiers and scan activity reach those providers.",
+      "limitation": "Python project with Windows virtual-environment instructions. Account matches can be false positives and do not establish identity; keep reports and API keys private. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "autopentestx",
+      "name": "AutoPentestX",
+      "category": "hacking",
+      "url": "https://github.com/Gowtham-Darkseid/AutoPentestX",
+      "summary": "Automated penetration-testing and reporting project by Gowtham-Darkseid.",
+      "use_case": "Evaluate automated assessment reporting in a disposable Linux lab.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Behavior depends on its assessment modules; inspect implementation before selecting a target.",
+      "limitation": "Upstream README identifies Linux and Python 3.8+ but supplies little textual setup guidance. Native Windows support and operational readiness are unverified. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "neurosploit",
+      "name": "NeuroSploit",
+      "category": "ai-security",
+      "url": "https://github.com/JoasASantos/NeuroSploit",
+      "summary": "AI-assisted penetration-testing harness by Joas A Santos and contributors.",
+      "use_case": "Evaluate assisted code review and scoped lab assessments on Windows or Linux.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "neurosploit"
+      ],
+      "network": "Selected tools contact targets; configured model providers can receive code, prompts, credentials, or findings.",
+      "limitation": "Current upstream documents native Windows/Linux builds and a Rust harness; older Python instructions describe a different version. Review scope, provider settings, and generated actions; model-generated findings require independent confirmation. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "fluxer",
+      "name": "FluxER",
+      "category": "lab",
+      "url": "https://github.com/0n1cOn3/FluxER",
+      "summary": "Fluxion installer and launcher for Termux, maintained by 0n1cOn3.",
+      "use_case": "Review a mobile wireless-auditing lab setup on Android.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Downloads a Linux userspace and wireless tools; audit behavior depends on the selected Fluxion workflow.",
+      "limitation": "Upstream targets Android 9+ ARM64 with Termux/proot, not a native Windows or desktop Linux application. Installation success does not establish wireless hardware or auditing capability. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "ethical-hacking-projects",
+      "name": "Ethical Hacking Projects for Beginners",
+      "category": "lab",
+      "url": "https://github.com/0xrajneesh/Ethical-Hacking-Projects-for-beginners",
+      "summary": "Seven guided security projects published by Rajneesh Gupta.",
+      "use_case": "Practice local network discovery, vulnerable web apps, and honeypot analysis.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Reading guides is passive; individual exercises run scanners, services, or other network-active tools.",
+      "limitation": "Guides primarily use Kali Linux; Windows users can use a Linux VM. This is a learning reference, not one installable application. Some README clone and directory examples are placeholders. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "xss-vibes",
+      "name": "XSS_VIBES",
+      "category": "hacking",
+      "url": "https://github.com/faiyazahmad07/xss_vibes",
+      "summary": "Python web-testing project for identifying potential XSS behavior.",
+      "use_case": "Investigate potential cross-site scripting in a scoped lab web application.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Sends payload-bearing HTTP requests; optional crawling expands the requested URL set.",
+      "limitation": "Upstream documents Python and optional Katana integration but no clear Windows/Linux support matrix. Findings need browser-level confirmation; reflection alone is not demonstrated script execution. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "toolhunt",
+      "name": "ToolHunt",
+      "category": "ai-security",
+      "url": "https://github.com/cyberytti/ToolHunt",
+      "summary": "Local cybersecurity-tool discovery interface maintained by cyberytti.",
+      "use_case": "Search a tool index using keywords and semantic similarity.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Local search uses a downloaded tool/model stack; optional Colab and ngrok deployment introduces cloud processing and public exposure.",
+      "limitation": "Upstream specifies Python 3.12+ and a GPU requirement but no clear native Windows/Linux support matrix. Treat search matches as discovery leads, not audited recommendations. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "petep",
+      "name": "PETEP",
+      "category": "hacking",
+      "url": "https://github.com/Warxim/petep",
+      "summary": "TCP/UDP interception and analysis proxy by Warxim.",
+      "use_case": "Inspect and modify test-application protocol traffic on Windows or Linux.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Intercepts traffic between configured clients and servers; captures can contain credentials or application data.",
+      "limitation": "Upstream documents Windows and Linux launch scripts with Java 11+. TLS interception needs suitable certificates and application configuration; save project changes explicitly. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "deluder",
+      "name": "Deluder",
+      "category": "hacking",
+      "url": "https://github.com/Warxim/deluder",
+      "summary": "Frida-based application traffic instrumentation by Warxim.",
+      "use_case": "Inspect a test application that does not support proxy configuration.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "deluder"
+      ],
+      "network": "Hooks networking or encryption calls in selected processes and can forward intercepted data to PETEP or another proxy.",
+      "limitation": "Upstream documents Python 3.9+, Windows networking libraries, and Linux sockets. Compatibility depends on process architecture and library versions; interception can alter or interrupt application behavior. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "ghostroute",
+      "name": "GhostRoute",
+      "category": "opsec",
+      "url": "https://github.com/s-r-e-e-r-a-j/GhostRoute",
+      "summary": "Linux Tor-routing configuration utility maintained by s-r-e-e-r-a-j.",
+      "use_case": "Evaluate routing behavior in a disposable Linux privacy lab.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "ghostroute"
+      ],
+      "network": "Changes system routing/firewall behavior and contacts the Tor network; IP checks can query external services.",
+      "limitation": "Upstream targets Debian, RHEL, and Arch with Bash, Tor, jq, and nftables; it is not native Windows software. Routing claims are not proof of leak protection or anonymity. Preserve network settings before evaluation. Upstream documentation reviewed 2026-10-05; runtime not validated here."
+    },
+    {
+      "id": "hive",
+      "name": "H.I.V.E",
+      "category": "osint",
+      "url": "https://github.com/Shad0w-ops/H.I.V.E",
+      "summary": "Modular OSINT workflow integrating Shodan and other providers.",
+      "use_case": "Collect and compare provider-based exposure information during an investigation.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Queries configured services such as Shodan, Hunter, and IntelX; providers receive queries and API-account identifiers.",
+      "limitation": "Upstream documents Linux, Python 3.10+, and Kali/BlackArch testing. Some modules change host networking or process sensitive datasets; validate each module and keep API keys and outputs outside Git. Native Windows support is not documented. Upstream documentation reviewed 2026-10-05; runtime not validated here."
     }
   ]
 }
