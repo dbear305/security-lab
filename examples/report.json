@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "tool_version": "0.1.0",
+  "domain": "example.com",
+  "collected_at": "2026-10-04T16:08:18.204910Z",
+  "mode": "synthetic_fixture",
+  "sources": [
+    {
+      "id": "dns:A",
+      "url": "https://dns.google/resolve?name=example.com&type=A",
+      "collected_at": "2026-10-04T16:08:18.205050Z",
+      "status": "ok",
+      "response_sha256": "4aae7c86913c75e6ab9b1a1ea9d5fbb05b3c43a987157b649770f5db0536b5ad",
+      "dns_status": 0
+    },
+    {
+      "id": "dns:AAAA",
+      "url": "https://dns.google/resolve?name=example.com&type=AAAA",
+      "collected_at": "2026-10-04T16:08:18.205135Z",
+      "status": "ok",
+      "response_sha256": "9ec7d00c40865dbc7ae5fc4792164ec0ef6032a6c34a5bf7be2d0d4e21525860",
+      "dns_status": 0
+    },
+    {
+      "id": "dns:MX",
+      "url": "https://dns.google/resolve?name=example.com&type=MX",
+      "collected_at": "2026-10-04T16:08:18.205209Z",
+      "status": "ok",
+      "response_sha256": "5ba88dec80317edc9e93f38ef02490d28e7faf61750238775b09f450a54878bc",
+      "dns_status": 0
+    },
+    {
+      "id": "dns:NS",
+      "url": "https://dns.google/resolve?name=example.com&type=NS",
+      "collected_at": "2026-10-04T16:08:18.205242Z",
+      "status": "ok",
+      "response_sha256": "b0313db7f9ee55fc674060a0f84035d6293677518215edaebe3e26824540c395",
+      "dns_status": 0
+    },
+    {
+      "id": "dns:TXT",
+      "url": "https://dns.google/resolve?name=example.com&type=TXT",
+      "collected_at": "2026-10-04T16:08:18.205263Z",
+      "status": "ok",
+      "response_sha256": "4fcbff1fa3195779bbfd601ba1ba0e2fcab5468a6d5d20c072b31e24c0909dfb",
+      "dns_status": 0
+    },
+    {
+      "id": "dns:CAA",
+      "url": "https://dns.google/resolve?name=example.com&type=CAA",
+      "collected_at": "2026-10-04T16:08:18.205344Z",
+      "status": "ok",
+      "response_sha256": "8f68902433bf93c6068a10c58e0a74c24622b67cad54be7ff7f4e99cfc86def5",
+      "dns_status": 0
+    },
+    {
+      "id": "ct",
+      "url": "https://crt.sh/?q=%25.example.com&output=json",
+      "collected_at": "2026-10-04T16:08:18.205365Z",
+      "status": "ok",
+      "response_sha256": "80838a397828b7a8f477d8ce37daa01ee9d85a11edd1f42a517acc8e31c2161a"
+    }
+  ],
+  "observations": [
+    {
+      "kind": "dns",
+      "record_type": "A",
+      "owner": "example.com",
+      "value": "192.0.2.10",
+      "source_id": "dns:A"
+    },
+    {
+      "kind": "dns",
+      "record_type": "AAAA",
+      "owner": "example.com",
+      "value": "2001:db8::10",
+      "source_id": "dns:AAAA"
+    },
+    {
+      "kind": "dns",
+      "record_type": "MX",
+      "owner": "example.com",
+      "value": "10 mail.example.com",
+      "source_id": "dns:MX"
+    },
+    {
+      "kind": "dns",
+      "record_type": "NS",
+      "owner": "example.com",
+      "value": "ns1.example.com",
+      "source_id": "dns:NS"
+    },
+    {
+      "kind": "dns",
+      "record_type": "TXT",
+      "owner": "example.com",
+      "value": "\"v=spf1 -all\"",
+      "source_id": "dns:TXT"
+    },
+    {
+      "kind": "dns",
+      "record_type": "CAA",
+      "owner": "example.com",
+      "value": "0 issue \"ca.example\"",
+      "source_id": "dns:CAA"
+    },
+    {
+      "kind": "certificate_name",
+      "value": "*.example.com",
+      "certificate_urls": [
+        "https://crt.sh/?id=100"
+      ],
+      "source_id": "ct"
+    },
+    {
+      "kind": "certificate_name",
+      "value": "example.com",
+      "certificate_urls": [
+        "https://crt.sh/?id=100"
+      ],
+      "source_id": "ct"
+    },
+    {
+      "kind": "certificate_name",
+      "value": "www.example.com",
+      "certificate_urls": [
+        "https://crt.sh/?id=100",
+        "https://crt.sh/?id=101"
+      ],
+      "source_id": "ct"
+    }
+  ],
+  "complete": true
+}
