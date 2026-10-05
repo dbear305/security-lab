@@ -1,0 +1,10 @@
+robots.txt
+security.txt
+.well-known/security.txt
+api
+rest
+assets
+login
+admin
+ftp
+this-path-should-not-exist-e360
