@@ -64,7 +64,7 @@ def markdown(rows):
     def cell(value):
         return str(value).replace("|", "&#124;").replace("\n", " ")
     lines = ["# Security toolkit", "", "Generated from `catalog.json` with `python3 src/toolkit.py list --markdown`.", "",
-             "Upstream project pages reviewed 2026-10-04. These are curated references, not bundled binaries or audited dependencies. Setup effort is an estimate; no maintenance or security guarantee is implied.", "",
+             "Base catalog reviewed 2026-10-04; later additions record their review date in the entry. These are curated references, not bundled binaries or audited dependencies. Setup effort is an estimate; no maintenance or security guarantee is implied.", "",
              "Starter = first tools to learn. Gem = a specialized find worth evaluating, not a star-count ranking.", ""]
     for category in CATEGORIES:
         lines += [f"## {category.upper()}", "", "| Tool | Practical use | Setup | Selection |", "| --- | --- | --- | --- |"]
