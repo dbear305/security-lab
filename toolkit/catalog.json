@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-04",
+  "review_scope": "Upstream documentation and project identity; not a code audit or runtime validation.",
+  "tools": [
+    {
+      "id": "nmap",
+      "name": "Nmap",
+      "category": "hacking",
+      "url": "https://github.com/nmap/nmap",
+      "summary": "Service and network discovery.",
+      "use_case": "Inventory ports and service versions in a scoped assessment.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "nmap"
+      ],
+      "network": "Sends probes directly to the selected hosts.",
+      "limitation": "Version guesses need confirmation; NSE scripts vary in behavior."
+    },
+    {
+      "id": "ffuf",
+      "name": "ffuf",
+      "category": "hacking",
+      "url": "https://github.com/ffuf/ffuf",
+      "summary": "HTTP content and parameter fuzzing.",
+      "use_case": "Find routes and compare responses in the local web lab.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "ffuf"
+      ],
+      "network": "Sends HTTP requests directly to the target.",
+      "limitation": "SPA fallback pages can produce false positives; calibrate filters."
+    },
+    {
+      "id": "zap",
+      "name": "ZAP",
+      "category": "hacking",
+      "url": "https://github.com/zaproxy/zaproxy",
+      "summary": "Intercepting proxy and web security scanner.",
+      "use_case": "Review HTTP behavior and produce a baseline web report.",
+      "setup": "medium",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Spidering sends requests; active scan modes send attack payloads.",
+      "limitation": "Baseline rules are passive, but crawling is network-active and findings require review."
+    },
+    {
+      "id": "nuclei",
+      "name": "Nuclei",
+      "category": "hacking",
+      "url": "https://github.com/projectdiscovery/nuclei",
+      "summary": "Template-driven vulnerability checks.",
+      "use_case": "Run reviewed, explicit templates against a lab or scoped asset.",
+      "setup": "medium",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "nuclei"
+      ],
+      "network": "Templates can contact targets and out-of-band services; cloud upload is a separate feature.",
+      "limitation": "Template matches are leads. Review template code, requests, and external interactions."
+    },
+    {
+      "id": "metasploit",
+      "name": "Metasploit Framework",
+      "category": "hacking",
+      "url": "https://github.com/rapid7/metasploit-framework",
+      "summary": "Exploit development and validation framework.",
+      "use_case": "Study modules and reproduce a vulnerability in a disposable VM lab.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "msfconsole"
+      ],
+      "network": "Selected modules connect to targets; payloads may create sessions and change state.",
+      "limitation": "Module-specific effects differ. Use VM snapshots and document exact module options."
+    },
+    {
+      "id": "sqlmap",
+      "name": "sqlmap",
+      "category": "hacking",
+      "url": "https://github.com/sqlmapproject/sqlmap",
+      "summary": "Automated SQL injection testing.",
+      "use_case": "Validate SQL injection in an intentionally vulnerable application.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Sends injection payloads to target endpoints.",
+      "limitation": "Tests can be intrusive; start with a single parameter and minimal settings. Clone-based installs may have no PATH command."
+    },
+    {
+      "id": "mitmproxy",
+      "name": "mitmproxy",
+      "category": "hacking",
+      "url": "https://github.com/mitmproxy/mitmproxy",
+      "summary": "Programmable HTTP and HTTPS interception.",
+      "use_case": "Inspect requests from your own client or test application.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "mitmproxy"
+      ],
+      "network": "Traffic passes through your proxy; TLS decryption requires client trust configuration.",
+      "limitation": "Use a dedicated test browser profile; remove the test CA when finished."
+    },
+    {
+      "id": "subfinder",
+      "name": "Subfinder",
+      "category": "osint",
+      "url": "https://github.com/projectdiscovery/subfinder",
+      "summary": "Passive subdomain source aggregation.",
+      "use_case": "Expand domain leads before separately validating ownership and scope.",
+      "setup": "low",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "subfinder"
+      ],
+      "network": "Queries external providers; API keys and provider coverage vary.",
+      "limitation": "Discovered names are not proof of live services or common ownership."
+    },
+    {
+      "id": "checkdmarc",
+      "name": "checkdmarc",
+      "category": "osint",
+      "url": "https://github.com/domainaware/checkdmarc",
+      "summary": "SPF and DMARC record validation.",
+      "use_case": "Create actionable email-domain configuration findings.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "checkdmarc"
+      ],
+      "network": "Performs DNS lookups, including policy-related records.",
+      "limitation": "DNS configuration alone does not establish mail delivery or spoofing outcomes."
+    },
+    {
+      "id": "auto-archiver",
+      "name": "Auto Archiver",
+      "category": "osint",
+      "url": "https://github.com/bellingcat/auto-archiver",
+      "summary": "Preserves linked online content.",
+      "use_case": "Keep archived evidence behind a research finding.",
+      "setup": "medium",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Fetches URLs; configured storage and archivers can send data to third parties.",
+      "limitation": "Platform changes, login requirements, and deleted content limit coverage."
+    },
+    {
+      "id": "certgraph",
+      "name": "CertGraph",
+      "category": "osint",
+      "url": "https://github.com/lanrat/certgraph",
+      "summary": "Certificate alternative-name relationship crawler.",
+      "use_case": "Explore domain relationships beyond a flat certificate-name list.",
+      "setup": "low",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [
+        "certgraph"
+      ],
+      "network": "Default collection connects to hosts; the crtsh driver uses CT records.",
+      "limitation": "Shared certificates require corroboration before inferring ownership."
+    },
+    {
+      "id": "octosuite",
+      "name": "Octosuite",
+      "category": "osint",
+      "url": "https://github.com/bellingcat/octosuite",
+      "summary": "GitHub public-data investigation toolkit.",
+      "use_case": "Analyze repository, organization, and public activity relationships.",
+      "setup": "low",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "octosuite"
+      ],
+      "network": "Queries GitHub; authenticated requests identify the API account.",
+      "limitation": "Rate limits and visibility constraints affect completeness."
+    },
+    {
+      "id": "kronikier",
+      "name": "Kronikier",
+      "category": "osint",
+      "url": "https://github.com/soxoj/kronikier",
+      "summary": "Historical website contact research.",
+      "use_case": "Trace changes in a company's archived public contact pages.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [
+        "kronikier"
+      ],
+      "network": "Queries the Wayback Machine and uses local caches.",
+      "limitation": "Historical contacts may be obsolete; compare normalized phone numbers with raw text."
+    },
+    {
+      "id": "metawarc",
+      "name": "Metawarc",
+      "category": "osint",
+      "url": "https://github.com/ruarxive/metawarc",
+      "summary": "Metadata extraction from WARC collections.",
+      "use_case": "Index preserved archives for repeatable local analysis.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [
+        "metawarc"
+      ],
+      "network": "Processes local archives; integrations can change exposure.",
+      "limitation": "Useful after evidence capture; extracted metadata does not verify a source's claims."
+    },
+    {
+      "id": "certspotter",
+      "name": "Cert Spotter",
+      "category": "osint",
+      "url": "https://github.com/SSLMate/certspotter",
+      "summary": "Certificate-transparency log monitoring.",
+      "use_case": "Watch for certificate issuance involving your domains.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [
+        "certspotter"
+      ],
+      "network": "Reads public CT logs; configured notification hooks may send data elsewhere.",
+      "limitation": "Issuance is an observation, not proof of a live service or compromise."
+    },
+    {
+      "id": "asn",
+      "name": "ASN",
+      "category": "osint",
+      "url": "https://github.com/nitefood/asn",
+      "summary": "ASN, routing, and IP context.",
+      "use_case": "Explain network ownership and routing context behind an address.",
+      "setup": "low",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [
+        "asn"
+      ],
+      "network": "Queries external routing, geolocation, and optional reputation services; modes vary.",
+      "limitation": "IP geolocation and reputation are approximate and can be stale."
+    },
+    {
+      "id": "shadowfinder",
+      "name": "ShadowFinder",
+      "category": "osint",
+      "url": "https://github.com/bellingcat/ShadowFinder",
+      "summary": "Shadow-based geographic hypothesis tool.",
+      "use_case": "Compare possible locations using measured shadows and time.",
+      "setup": "medium",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [],
+      "network": "Notebook and map dependencies can access external services.",
+      "limitation": "Measurement and timestamp uncertainty can produce broad or wrong location estimates."
+    },
+    {
+      "id": "pcapdroid",
+      "name": "PCAPdroid",
+      "category": "opsec",
+      "url": "https://github.com/emanuele-f/PCAPdroid",
+      "summary": "Android app traffic inspection.",
+      "use_case": "See which destinations your Android apps contact and export PCAPs.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Normal capture processes traffic on the device using Android's VPN interface.",
+      "limitation": "Competes with another VPN in standard mode; encrypted payloads remain encrypted without additional setup."
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark",
+      "category": "opsec",
+      "url": "https://github.com/wireshark/wireshark",
+      "summary": "Packet capture analysis.",
+      "use_case": "Investigate PCAPs from Android, a lab, or your own network.",
+      "setup": "medium",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "tshark"
+      ],
+      "network": "Offline PCAP reading can stay local; resolution features can generate lookups.",
+      "limitation": "Captures can contain session tokens and personal data; GitHub is a mirror of the upstream GitLab repository."
+    },
+    {
+      "id": "gitleaks",
+      "name": "Gitleaks",
+      "category": "opsec",
+      "url": "https://github.com/gitleaks/gitleaks",
+      "summary": "Local secret detection in files and Git history.",
+      "use_case": "Review code and research outputs before publication.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [
+        "gitleaks"
+      ],
+      "network": "Core scanning can run locally.",
+      "limitation": "A clean result is not proof that no credentials exist; exposed real secrets require rotation."
+    },
+    {
+      "id": "exifcleaner",
+      "name": "ExifCleaner",
+      "category": "opsec",
+      "url": "https://github.com/szTheory/exifcleaner",
+      "summary": "Desktop media metadata cleaning.",
+      "use_case": "Clean sharing copies of supported image and media files.",
+      "setup": "low",
+      "starter": false,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Processes files locally.",
+      "limitation": "PDF metadata removal is reversible; preserve originals and inspect output separately."
+    },
+    {
+      "id": "slips",
+      "name": "Slips",
+      "category": "opsec",
+      "url": "https://github.com/stratosphereips/StratosphereLinuxIPS",
+      "summary": "Behavioral analysis of network flows.",
+      "use_case": "Evaluate unusual behavior in saved lab captures.",
+      "setup": "high",
+      "starter": false,
+      "hidden_gem": true,
+      "commands": [],
+      "network": "Processes network data; threat-intelligence integrations may query external services.",
+      "limitation": "Heuristic and ML alerts need investigation; start with known captures."
+    },
+    {
+      "id": "mcp-scanner",
+      "name": "Cisco MCP Scanner",
+      "category": "ai-security",
+      "url": "https://github.com/cisco-ai-defense/mcp-scanner",
+      "summary": "MCP component security analysis.",
+      "use_case": "Review agent tools, prompts, resources, and server code.",
+      "setup": "medium",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Static/local and external analysis engines have different data-sharing behavior.",
+      "limitation": "Check the chosen engine and configuration before including private tool or skill content."
+    },
+    {
+      "id": "juice-shop",
+      "name": "OWASP Juice Shop",
+      "category": "lab",
+      "url": "https://github.com/juice-shop/juice-shop",
+      "summary": "Intentionally vulnerable web application.",
+      "use_case": "Practice web testing on a disposable local target.",
+      "setup": "low",
+      "starter": true,
+      "hidden_gem": false,
+      "commands": [],
+      "network": "Runs a local web service; image pulls contact a container registry.",
+      "limitation": "Keep the published port on loopback; the application is deliberately vulnerable."
+    }
+  ]
+}
