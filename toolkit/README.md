@@ -2,7 +2,7 @@
 
 Generated from `catalog.json` with `python3 src/toolkit.py list --markdown`.
 
-Upstream project pages reviewed 2026-10-04. These are curated references, not bundled binaries or audited dependencies. Setup effort is an estimate; no maintenance or security guarantee is implied.
+Base catalog reviewed 2026-10-04; later additions record their review date in the entry. These are curated references, not bundled binaries or audited dependencies. Setup effort is an estimate; no maintenance or security guarantee is implied.
 
 Starter = first tools to learn. Gem = a specialized find worth evaluating, not a star-count ranking.
 
@@ -32,6 +32,7 @@ Starter = first tools to learn. Gem = a specialized find worth evaluating, not a
 | [Metasploit Framework](https://github.com/rapid7/metasploit-framework) | Study modules and reproduce a vulnerability in a disposable VM lab. | high | On demand |
 | [sqlmap](https://github.com/sqlmapproject/sqlmap) | Validate SQL injection in an intentionally vulnerable application. | medium | On demand |
 | [mitmproxy](https://github.com/mitmproxy/mitmproxy) | Inspect requests from your own client or test application. | medium | On demand |
+| [Hackingtool (Z4nzu)](https://github.com/Z4nzu/hackingtool) | Find, install, and launch tools for recon, OSINT, web testing, and forensics in a Linux lab. | medium | On demand |
 
 ## OPSEC
 
@@ -248,5 +249,13 @@ Intentionally vulnerable web application.
 **Network/data:** Runs a local web service; image pulls contact a container registry.
 
 **Limit:** Keep the published port on loopback; the application is deliberately vulnerable.
+
+### Hackingtool (Z4nzu)
+
+All-in-one security tool catalog and launcher by Z4nzu and contributors (MIT license).
+
+**Network/data:** Installation downloads upstream tools; network activity and data exposure depend on the selected tool and any configured AI provider.
+
+**Limit:** Requires Python 3.10+. Upstream supports Linux/macOS and explicitly rejects native Windows; use a Linux VM on a Windows host. Individual tools have their own requirements and licenses. Documentation reviewed 2026-10-05; runtime not tested here.
 
 Third-party software and data retain their upstream licenses. Follow each linked project's installation documentation. This repository does not auto-install, vendor, or execute these tools.
