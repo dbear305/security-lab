@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+reports/
+evidence-private/
+*.pcap
+*.pcapng
+*.har
+*.warc
+*.warc.gz
+.env
+.env.*
+!.env.example
